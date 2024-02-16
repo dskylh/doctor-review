@@ -5,7 +5,7 @@
     <div
       class="w-full p-6 border-t-4 rounded-md bg-primary-content border-top border-accent lg:max-w-lg"
     >
-      <h1 class="text-3xl font-semibold text-center">Giriş Yap</h1>
+      <h1 class="text-3xl font-semibold text-center">Kayıt Ol</h1>
       <form class="space-y-4">
         <div>
           <label class="label">
@@ -19,13 +19,14 @@
           </label>
           <input type="password" class="w-full input input-bordered" />
         </div>
-        <a
-          href="#"
-          class="text-xs text-gray-600 hover:underline hover:text-blue-600"
-          >Şifremi Unuttum</a
-        >
         <div>
-          <button class="btn btn-primary btn-block mt-1">Giriş Yap</button>
+          <label class="label">
+            <span class="text-base label-text">Şifre Tekrar</span>
+          </label>
+          <input type="password" class="w-full input input-bordered" />
+        </div>
+        <div>
+          <button class="btn btn-primary btn-block mt-1">Kayıt Ol</button>
         </div>
       </form>
     </div>
