@@ -1,5 +1,7 @@
+<script setup></script>
+
 <template>
-  <div>
-    <h1>Homepage</h1>
+  <div class="flex flex-col">
+    <h1 class="text-3xl">Placeholder</h1>
   </div>
 </template>
