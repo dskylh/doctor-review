@@ -3,7 +3,7 @@
     class="relative flex flex-col items-center justify-center h-screen overflow-hidden"
   >
     <div
-      class="w-full p-6 border-t-4 rounded-md bg-primary-content border-top border-accent lg:max-w-lg"
+      class="w-full p-6 border-t-4 rounded-md border-top border-accent lg:max-w-lg bg-base-200"
     >
       <h1 class="text-3xl font-semibold text-center">Kayıt Ol</h1>
       <form class="space-y-4">
