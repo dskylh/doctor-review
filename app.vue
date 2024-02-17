@@ -1,7 +1,6 @@
-<script setup lang="ts">
-import { useColorModeStore } from "./stores/ColorMode";
-</script>
+<script setup lang="ts"></script>
 <template>
+  <NuxtLoadingIndicator />
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
