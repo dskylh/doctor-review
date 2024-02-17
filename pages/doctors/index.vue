@@ -1,9 +1,18 @@
-<script setup lang="ts">
+<script setup>
 const uri = "https://65cf598bbdb50d5e5f5b17a4.mockapi.io/api/v1/doctors";
-// take the data from the api as a Doctor list
-const { data: doctors } = await useFetch(uri);
+const { data } = await useFetch(uri);
+const doctors = ref(data);
 
 const selectAll = ref(false);
+const selectedDoctors = ref([]);
+const deleteSelectedDoctors = async () => {
+  for (const id of selectedDoctors.value) {
+    await fetch(`${uri}/${id}`, {
+      method: "DELETE",
+    });
+    doctors.value = doctors.value.filter((doctor) => doctor.id !== id);
+  }
+};
 </script>
 <template>
   <div class="overflow-x-auto">
@@ -17,17 +26,22 @@ const selectAll = ref(false);
             </label>
           </th>
           <th>İsim</th>
-          <th>Dalı</th>
-          <th>Cinsiyet</th>
+          <th>Doktorun Dalı</th>
+          <th>Telefon Numarasi</th>
+          <th>
+            <button @click="deleteSelectedDoctors" class="btn btn-warning btn-xs">
+              delete
+            </button>
+          </th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <!-- row 1 -->
-        <tr v-for="doctor in doctors">
+        <tr v-for="doctor in doctors" :key="doctor.id">
           <th>
             <label>
-              <input :checked="selectAll" type="checkbox" class="checkbox" />
+              <input :checked="selectAll" :value="doctor.id" v-model="selectedDoctors" type="checkbox" class="checkbox" />
             </label>
           </th>
           <td>
@@ -46,9 +60,9 @@ const selectAll = ref(false);
           <td>
             {{ doctor.speciality }}
           </td>
-          <td>{{ doctor.sex }}</td>
+          <td>{{ doctor.contact }}</td>
           <th>
-            <NuxtLink :to="`/doctor/${doctor.id}`" class="btn btn-ghost btn-xs">details</NuxtLink>
+            <NuxtLink :to="`/doctor/${doctor.id}`" class="link font">details</NuxtLink>
           </th>
         </tr>
         <!-- foot -->
