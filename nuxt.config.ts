@@ -12,4 +12,10 @@ export default defineNuxtConfig({
 		dataValue: "theme", // activate data-theme in <html> tag
 		classSuffix: "",
 	},
+	// imports: {
+	// 	dirs: ["stores"]
+	// },
+	pinia: {
+    storesDirs: ['./stores/**', './custom-folder/stores/**'],
+  },
 });
