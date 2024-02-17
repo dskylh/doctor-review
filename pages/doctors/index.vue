@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const uri = "https://65cf598bbdb50d5e5f5b17a4.mockapi.io/api/v1/doctors";
+// take the data from the api as a Doctor list
 const { data: doctors } = await useFetch(uri);
+
 const selectAll = ref(false);
 </script>
 <template>
@@ -25,7 +27,7 @@ const selectAll = ref(false);
         <tr v-for="doctor in doctors">
           <th>
             <label>
-              <input type="checkbox" class="checkbox" />
+              <input :checked="selectAll" type="checkbox" class="checkbox" />
             </label>
           </th>
           <td>
@@ -46,7 +48,7 @@ const selectAll = ref(false);
           </td>
           <td>{{ doctor.sex }}</td>
           <th>
-            <NuxtLink :to="`/doctors/${doctor.id}`" class="btn btn-ghost btn-xs">details</NuxtLink>
+            <NuxtLink :to="`/doctor/${doctor.id}`" class="btn btn-ghost btn-xs">details</NuxtLink>
           </th>
         </tr>
         <!-- foot -->
