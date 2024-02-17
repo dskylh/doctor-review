@@ -1,6 +1,5 @@
 <script setup lang="ts">
-const colorMode = useColorMode();
-colorMode.preference = "cupcake";
+import { useColorModeStore } from "./stores/ColorMode";
 </script>
 <template>
   <NuxtLayout>
