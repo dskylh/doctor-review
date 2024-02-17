@@ -5,10 +5,10 @@ export default defineNuxtConfig({
 		"@nuxtjs/tailwindcss",
 		"@nuxtjs/color-mode",
 		"@nuxt/image",
-
+		"@pinia/nuxt",
 	],
 	colorMode: {
-		preference: "system", // default theme
+		preference: "cupcake", // default theme
 		dataValue: "theme", // activate data-theme in <html> tag
 		classSuffix: "",
 	},
