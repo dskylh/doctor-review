@@ -43,6 +43,9 @@ const { data: doctor } = await useFetch(uri);
             <p>{{ doctor.contact }}</p>
           </div>
         </div>
+        <NuxtLink :to="`/doctor/${id}/review`" class="btn btn-primary"
+          >Review</NuxtLink
+        >
       </div>
     </div>
     <section class="p-8">
