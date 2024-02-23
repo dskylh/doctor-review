@@ -39,42 +39,10 @@ const selectedElements = ref([]);
               />
             </label>
           </th>
-          <td>
-            <div class="flex items-center gap-3">
-              <div class="avatar">
-                <div class="mask mask-squircle w-12 h-12">
-                  <NuxtImg :src="element.avatar" alt="image" />
-                  <slot name="element-avatar"></slot>
-                </div>
-              </div>
-              <div>
-                <div class="font-bold">{{ element.name }}</div>
-                <div class="text-sm opacity-50">{{ element.city }}</div>
-              </div>
-            </div>
-          </td>
-          <td>
-            {{ element.speciality }}
-          </td>
-          <td>{{ element.contact }}</td>
-          <th>
-            <NuxtLink :to="`/doctor/${element.id}`" class="link font"
-              >details</NuxtLink
-            >
-          </th>
+          <slot name="listBody" :element="element"></slot>
         </tr>
         <!-- foot -->
       </tbody>
-
-      <tfoot>
-        <tr>
-          <th></th>
-          <span v-for="field in fields">
-            <th>{{ field }}</th>
-          </span>
-          <th></th>
-        </tr>
-      </tfoot>
     </table>
   </div>
 </template>

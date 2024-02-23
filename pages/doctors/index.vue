@@ -38,6 +38,31 @@ let fields = ["İsim", "Doktorun Dalı", "Telefon Numarasi"];
       :elements="doctors"
       :fields="fields"
     >
+      <template #listBody="props">
+        <td>
+          <div class="flex items-center gap-3">
+            <div class="avatar">
+              <div class="mask mask-squircle w-12 h-12">
+                <NuxtImg :src="props.element.avatar" alt="image" />
+                <slot name="element-avatar"></slot>
+              </div>
+            </div>
+            <div>
+              <div class="font-bold">{{ props.element.name }}</div>
+              <div class="text-sm opacity-50">{{ props.element.city }}</div>
+            </div>
+          </div>
+        </td>
+        <td>
+          {{ props.element.speciality }}
+        </td>
+        <td>{{ props.element.contact }}</td>
+        <th>
+          <NuxtLink :to="`/doctor/${props.element.id}`" class="link font"
+            >details</NuxtLink
+          >
+        </th>
+      </template>
     </table-list>
   </div>
 </template>
