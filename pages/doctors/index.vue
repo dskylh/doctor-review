@@ -29,7 +29,10 @@ const deleteSelectedDoctors = async () => {
           <th>Doktorun Dalı</th>
           <th>Telefon Numarasi</th>
           <th>
-            <button @click="deleteSelectedDoctors" class="btn btn-warning btn-xs">
+            <button
+              @click="deleteSelectedDoctors"
+              class="btn btn-warning btn-xs"
+            >
               delete
             </button>
           </th>
@@ -41,7 +44,13 @@ const deleteSelectedDoctors = async () => {
         <tr v-for="doctor in doctors" :key="doctor.id">
           <th>
             <label>
-              <input :checked="selectAll" :value="doctor.id" v-model="selectedDoctors" type="checkbox" class="checkbox" />
+              <input
+                :checked="selectAll"
+                :value="doctor.id"
+                v-model="selectedDoctors"
+                type="checkbox"
+                class="checkbox"
+              />
             </label>
           </th>
           <td>
@@ -62,7 +71,9 @@ const deleteSelectedDoctors = async () => {
           </td>
           <td>{{ doctor.contact }}</td>
           <th>
-            <NuxtLink :to="`/doctor/${doctor.id}`" class="link font">details</NuxtLink>
+            <NuxtLink :to="`/doctor/${doctor.id}`" class="link font"
+              >details</NuxtLink
+            >
           </th>
         </tr>
         <!-- foot -->
